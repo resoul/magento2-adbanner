@@ -1,0 +1,38 @@
+<?php
+use MRYM\AdBanner\Block\Widget\Banner;
+
+/* @var $block Banner */
+
+if ($block->canView()) :
+    $settings = $block->getBannerSettings();
+
+    $height = $settings['height'];
+
+    $blockClass = ' ' . $settings['blockClass'] . ' ' . $settings['style'];
+    $blockStyleClass = str_replace(' ', '.', $blockClass);
+?>
+<div class="<?php echo $blockClass; ?>">
+    <a href="<?php echo $settings['url-key']; ?>"><?php
+    echo $block->getImage($settings['imgClass']);
+    echo $settings['title']; ?></a>
+</div>
+<style>
+    @media (min-width: 1024px) {
+        <?php echo $blockStyleClass .'{height:' . $height . 'px}'; ?>
+        <?php echo $blockStyleClass .'{font-size:60px;line-height: 66px;}'; ?>
+    }
+    @media (max-width: 1023px) and (min-width: 768px) {
+        <?php echo $blockStyleClass .'{height:' . $height / 1.5 . 'px}'; ?>
+        <?php echo $blockStyleClass .'{font-size:33px;line-height: 46px;}'; ?>
+    }
+    @media (max-width: 767px) and (min-width: 522px) {
+        <?php echo $blockStyleClass .'{height:' . $height / 2.5 . 'px}'; ?>
+        <?php echo $blockStyleClass .'{font-size:20px;line-height: 36px;}'; ?>
+    }
+    @media (max-width: 521px) {
+        <?php echo $blockStyleClass .'{height:' . $height / 3 . 'px}'; ?>
+        <?php echo $blockStyleClass .'{font-size:18px;line-height: 34px;}'; ?>
+    }
+</style>
+<?php
+endif;

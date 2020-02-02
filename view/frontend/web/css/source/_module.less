@@ -1,0 +1,51 @@
+.block-widget.block-with-parallax, .block-widget.block-with-out-parallax{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+  .image-widget-headline{
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 66px;
+    font-weight: 200;
+    width: 100%;
+    top: 50%;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .img{
+    width:100%;
+  }
+}
+.block-widget.block-with-parallax + p, .block-widget.block-with-out-parallax + p{
+  display: none;
+}
+.block-widget.block-with-parallax{
+  .image-widget-headline{
+    transform: translateY(-50%);
+  }
+  .img-parallax {
+    width: 100vmax;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+  }
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .isOnlyMobile{
+    display: none;
+  }
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .isOnlyDesktop{
+    display: none;
+  }
+}

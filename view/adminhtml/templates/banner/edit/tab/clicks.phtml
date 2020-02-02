@@ -1,0 +1,48 @@
+<?php
+$all = (int) $this->getClicks();
+$unique = (int) $this->getUniqueClicks();
+$clicks = $all + $unique;
+?>
+<section class="admin__page-section order-view-account-information">
+    <div class="admin__page-section-title">
+        <span class="title"><?php echo /* @escapeNotVerified */ __('Clicks') ?></span>
+    </div>
+    <div class="admin__page-section-content">
+        <?php if ($clicks > 0) : ?>
+            <div class="admin__page-section-item">
+                <div class="admin__page-section-item-title">
+                    <span class="title"><?php echo /* @escapeNotVerified */ __('All Clicks') ?></span>
+                </div>
+                <div class="admin__page-section-item-content">
+                    <table class="admin__table-secondary order-information-table">
+                        <tbody>
+                        <tr>
+                            <th><?php echo $all; ?></th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="admin__page-section-item">
+                <div class="admin__page-section-item-title">
+                    <span class="title"><?php echo /* @escapeNotVerified */ __('Unique Clicks') ?></span>
+                </div>
+                <div class="admin__page-section-item-content">
+                    <table class="admin__table-secondary order-account-information-table">
+                        <tbody>
+                        <tr>
+                            <th><?php echo $unique; ?></th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <?php else : ?>
+            <div class="admin__page-section-item">
+                <div class="admin__page-section-item-title">
+                    <span class="title"><?php echo /* @escapeNotVerified */ __('We couldn\'t find any records.') ?></span>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+</section>

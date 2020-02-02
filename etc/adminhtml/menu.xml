@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MRYM_AdBanner::config" title="Ads" translate="title" module="MRYM_AdBanner" parent="Magento_Backend::marketing" sortOrder="10" resource="MRYM_AdBanner::config"/>
+        <add id="MRYM_AdBanner::banner" title="Banners" translate="title" sortOrder="10" module="MRYM_AdBanner" parent="MRYM_AdBanner::config" action="adbanner/banner/" resource="MRYM_AdBanner::banner"/>
+        <add id="MRYM_AdBanner::report" title="Ads Banner Reports " translate="title" sortOrder="10" module="MRYM_AdBanner" parent="Magento_Reports::report_marketing" action="adbanner/report/" resource="MRYM_AdBanner::report"/>
+    </menu>
+</config>

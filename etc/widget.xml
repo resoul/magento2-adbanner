@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="MRYM\AdBanner\Block\Widget\Banner" id="ad_banner_widget">
+        <label translate="true">Ads Banner</label>
+        <description translate="true">Contents of a Ads Banner</description>
+        <parameters>
+            <parameter name="title_text" xsi:type="text" visible="true" sort_order="5">
+                <label translate="true">Custom Text</label>
+            </parameter>
+            <parameter name="is_parallax" xsi:type="select" visible="true" required="false" sort_order="10"
+                       source_model="MRYM\AdBanner\Model\System\Config\Source\Parallax">
+                <label>Parallax</label>
+            </parameter>
+            <parameter name="view" xsi:type="select" visible="true" required="false" sort_order="20"
+                       source_model="MRYM\AdBanner\Model\System\Config\Source\View">
+                <label>Display Mode</label>
+            </parameter>
+            <parameter name="permission" xsi:type="select" visible="true" required="false" sort_order="30"
+                       source_model="MRYM\AdBanner\Model\System\Config\Source\Permission">
+                <label>Permission</label>
+            </parameter>
+            <parameter name="height" xsi:type="text" visible="true" required="false" sort_order="35">
+                <label translate="true">Banner height</label>
+                <description translate="true">If empty, 350px will be used</description>
+            </parameter>
+            <parameter name="banner_id" xsi:type="block" visible="true" required="true" sort_order="40">
+                <label translate="true">Banner</label>
+                <description translate="true">Please disable AdBlock...</description>
+                <block class="MRYM\AdBanner\Block\Adminhtml\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Banner...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
